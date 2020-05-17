@@ -12,9 +12,9 @@ public class HelloController {
         return "hello!";
     }
 
-    @RequestMapping("/art")
-    public String getName(){
-        Article article = Article.builder().id(1L).name("Pink").build();
-        return article.getName();
-    }
+//    @RequestMapping("/art")
+//    public String getName(){
+//        Article article = Article.builder().id(2L).name("GD").build();
+//        return article.getName();
+//    }
 }
