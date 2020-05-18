@@ -35,15 +35,15 @@ public class ArticleRestControllerTest {
                 "    \"title\": \"spring boot\",\n" +
                 "    \"content\": \"c\",\n" +
                 "    \"createTime\": \"2020-07-16 05:23:34\",\n" +
-                "    \"reader\":[{\"name\":\"aaa\",\"age\":18},{\"name\":\"bbb \",\"age\":37}]\n" +
+                "    \"readers\":[{\"name\":\"aaa\",\"age\":18},{\"name\":\"bbb \",\"age\":37}]\n" +
                 "}";
 
         MvcResult result = mockMvc.perform(
                 MockMvcRequestBuilders.request(HttpMethod.POST,"/rest/article")
                         .contentType("application/json").content(article))
                 .andExpect(MockMvcResultMatchers.status().isOk())
-                .andExpect(MockMvcResultMatchers.jsonPath("$data.author").value("aaa"))
-                .andExpect(MockMvcResultMatchers.jsonPath("$data.reader[0].age").value(18))
+                .andExpect(MockMvcResultMatchers.jsonPath("$.data.author").value("aaa"))
+                .andExpect(MockMvcResultMatchers.jsonPath("$.data.readers[0].age").value(18))
                 .andDo(print())
                 .andReturn();
 

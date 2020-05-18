@@ -16,9 +16,9 @@ import java.util.List;
 @Data
 public class Article {
 
-    @JsonIgnore//序列化的时候忽略这个字段
+    //@JsonIgnore//序列化的时候忽略这个字段
     private Long id;
-    @JsonProperty("新名字")//也就是前端用"新名字"，后端才能识别到，return回去的也是新名字
+    // @JsonProperty("新名字")//也就是前端用"新名字"，后端才能识别到，return回去的也是新名字
     private String author;
     private String title;
     private String content;
