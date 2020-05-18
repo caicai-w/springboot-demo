@@ -1,32 +1,43 @@
 package com.ceiling.springlauch;
 
 import com.ceiling.springlauch.controller.ArticleRestController;
+import com.ceiling.springlauch.service.ArticleRestService;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.HttpMethod;
+import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.MvcResult;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
+import javax.annotation.Resource;
+
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 
-
-//@Transactional,不要用
 @Slf4j
-//这个注解不启动servlet容器，resource这些注解不能用
+//但凡项目里有依赖注入的东西，都要这个注解
+@RunWith(SpringRunner.class)
+@AutoConfigureMockMvc
 @SpringBootTest
-public class ArticleRestControllerTest {
+public class ArticleRestControllerTest2 {
 
+    //上个是自己new的而不是注入
+    @Resource
     private MockMvc mockMvc;
 
-    @Before
-    public void setUp(){
-        mockMvc = MockMvcBuilders.standaloneSetup(new ArticleRestController()).build();
-    }
+    @Resource
+    private ArticleRestService service;
+
+//    @Before
+//    public void setUp(){
+//        mockMvc = MockMvcBuilders.standaloneSetup(new ArticleRestController()).build();
+//    }
 
     //这个测试不需要启动项目，不启动servlet容器
     @Test

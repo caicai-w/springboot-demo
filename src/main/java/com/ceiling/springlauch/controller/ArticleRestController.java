@@ -2,9 +2,11 @@ package com.ceiling.springlauch.controller;
 
 import com.ceiling.springlauch.model.AjaxResponse;
 import com.ceiling.springlauch.model.Article;
+import com.ceiling.springlauch.service.ArticleRestService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
 
+import javax.annotation.Resource;
 import java.util.Date;
 
 /**
@@ -17,6 +19,9 @@ import java.util.Date;
 @RequestMapping("/rest")
 //ResponseBody是返回json类型的
 public class ArticleRestController {
+
+    @Resource
+    ArticleRestService service;
 
     //和下面是同一个意思 @RequestMapping(value = "/article",method = POST,produces = "application/json")
     @PostMapping("/article")
