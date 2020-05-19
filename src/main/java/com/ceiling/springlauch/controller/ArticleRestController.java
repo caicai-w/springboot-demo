@@ -28,7 +28,8 @@ public class ArticleRestController {
     //RequestParam参数都是一个一个接的，比较麻烦，body是直接一个json发过来能直接转成一个类，类里面的list也可以直接接收
     public AjaxResponse saveArticle(@RequestBody Article article){
 
-        log.info("savaArticle: {}",article);
+        service.saveArticle(article);
+        //log.info("savaArticle: {}",article);
         return AjaxResponse.success(article);
     }
 
